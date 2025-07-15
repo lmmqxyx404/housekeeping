@@ -65,9 +65,9 @@ export default function LocalOrders() {
               <Text className='order-address'>{order.address}</Text>
             </View>
             <View className='order-action'>
-              <Text>抢单</Text>
+              <Text className='grab-btn'>抢单</Text>
+              <View className='order-label'>{order.source}</View>
             </View>
-            <Text className='order-label'>{order.source}</Text>
           </View>
         ))}
       </View>
