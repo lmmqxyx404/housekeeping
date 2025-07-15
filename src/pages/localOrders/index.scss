@@ -1,0 +1,132 @@
+.local-orders {
+  background: #F5F6FA;
+  min-height: 100vh;
+  padding-bottom: 80px;
+
+  .carousel {
+    margin: 16px;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tabs {
+    display: flex;
+    height: 48px;
+    margin: 0 16px;
+
+    .tab-item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: #333333;
+      position: relative;
+
+      &.active {
+        color: #1890FF;
+        font-weight: bold;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 20%;
+          right: 20%;
+          height: 2px;
+          background: #1890FF;
+          border-radius: 1px;
+        }
+      }
+    }
+  }
+
+  .list {
+    margin-top: 16px;
+    padding: 0 16px;
+
+    .order-card {
+      position: relative;
+      display: flex;
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+      .order-image {
+        width: 48px;
+        height: 48px;
+        margin-right: 12px;
+      }
+
+      .order-content {
+        flex: 1;
+
+        .order-title {
+          font-size: 16px;
+          color: #333333;
+          font-weight: bold;
+          margin-bottom: 4px;
+        }
+
+        .order-address {
+          font-size: 14px;
+          color: #666666;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .order-action {
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .order-label {
+        position: absolute;
+        bottom: 8px;
+        right: 12px;
+        background: #FFFBE6;
+        color: #FAAD14;
+        border-radius: 4px;
+        font-size: 12px;
+        padding: 2px 4px;
+      }
+    }
+  }
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    background: #FFFFFF;
+    border-top: 1px solid #E8E8E8;
+
+    .bottom-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #666666;
+      font-size: 12px;
+
+      &.active {
+        color: #1890FF;
+      }
+    }
+  }
+}
