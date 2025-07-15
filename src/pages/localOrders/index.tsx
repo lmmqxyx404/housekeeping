@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { View, Text, Swiper, SwiperItem, Image } from '@tarojs/components'
 import './index.scss'
-import banner from '../../product.jpg'
+// import banner from '../../product.jpg'
+import banner from '../../../product.jpg'
+
+
 
 interface Order {
   id: number
