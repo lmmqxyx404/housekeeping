@@ -54,6 +54,8 @@ const orders: Order[] = [
 export default function LocalOrders() {
   const [tab, setTab] = useState(0)
   const [current, setCurrent] = useState<Order | null>(null)
+  const [copied, setCopied] = useState(false)
+  const [grabbed, setGrabbed] = useState(false)
 
   const openDetail = (order: Order) => {
     setCurrent(order)
@@ -61,6 +63,22 @@ export default function LocalOrders() {
 
   const closeDetail = () => {
     setCurrent(null)
+    setCopied(false)
+    setGrabbed(false)
+  }
+
+  const copyAddress = () => {
+    if (!current) return
+    Taro.setClipboardData({ data: current.address }).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1200)
+    })
+  }
+
+  const grabOrder = () => {
+    if (grabbed) return
+    setGrabbed(true)
+    setTimeout(() => setGrabbed(false), 1000)
   }
 
   return (
@@ -124,35 +142,64 @@ export default function LocalOrders() {
         <View className='popup-mask' onClick={closeDetail}>
           <View className='order-popup' onClick={(e) => e.stopPropagation()}>
             <View className='popup-title'>订单详情</View>
-            <View className='popup-item'>
-              <Image
-                className='popup-icon'
-                src={banner}
-                mode='aspectFill'
-                onClick={() => Taro.previewImage({ urls: [banner] })}
-              />
+
+            <View className='popup-item service'>
+              <View className='icon-box'>
+                <Text className='icon'>🛠️</Text>
+              </View>
               <View className='popup-text'>
                 <Text className='popup-main'>{current.title}</Text>
                 <Text className='popup-sub'>{current.desc}</Text>
               </View>
+              <Image
+                className='service-photo'
+                src={banner}
+                mode='aspectFill'
+                onClick={() => Taro.previewImage({ urls: [banner] })}
+              />
             </View>
-            <View className='popup-item'>
+
+            <View className='popup-item time'>
+              <View className='icon-box'>
+                <Text className='icon'>📅</Text>
+              </View>
               <Text className='popup-info'>{current.time}</Text>
             </View>
+
             <View className='popup-item addr'>
+              <View className='icon-box'>
+                <Text className='icon'>📍</Text>
+              </View>
               <Text className='popup-info'>{current.address}</Text>
-              <Text className='copy-btn' onClick={() => { Taro.setClipboardData({ data: current.address }) }}>复制</Text>
+              <Text className='copy-btn' onClick={copyAddress}>{copied ? '已复制' : '复制'}</Text>
+              {copied && <Text className='tooltip'>复制成功</Text>}
             </View>
+
             <View className='popup-item'>
+              <View className='icon-box'>
+                <Text className='icon'>👤</Text>
+              </View>
               <Text className='popup-info'>{current.customer}</Text>
             </View>
+
             <View className='popup-item'>
+              <View className='icon-box'>
+                <Text className='icon'>☎️</Text>
+              </View>
               <Text className='popup-info'>{current.phone}</Text>
               <Text className='popup-tip'>抢单后可拨打电话</Text>
             </View>
+
             <View className='popup-action'>
-              <Text className='grab-big'>抢 单</Text>
+              <Text
+                className={`grab-big ${grabbed ? 'disabled' : ''}`}
+                style={{ transform: grabbed ? 'scale(0.95)' : 'scale(1)' }}
+                onClick={grabOrder}
+              >
+                抢 单
+              </Text>
             </View>
+
             <Text className='popup-close' onClick={closeDetail}>退出</Text>
           </View>
         </View>
