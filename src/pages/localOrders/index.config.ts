@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '本地订单'
+  navigationBarTitleText: '雯师傅'
 })
