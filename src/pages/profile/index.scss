@@ -1,13 +1,258 @@
+/* stylelint-disable no-descending-specificity */
 .profile {
-  padding: 20px;
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  background: #F5F5F5;
+  min-height: 100vh;
+  padding-bottom: 72px;
+
+  .title-bar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    .home {
+      width: 24px;
+      height: 24px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-family: 'Microsoft Yahei', sans-serif;
+      color: #222;
+    }
+
+    .ops {
+      display: flex;
+
+      .op {
+        margin-left: 12px;
+        font-size: 18px;
+      }
+    }
   }
-  .note {
-    margin-top: 20px;
-    color: #666;
-    font-size: 12px;
+
+  .info-card {
+    position: relative;
+    margin: 16px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+
+    .info-text {
+      flex: 1;
+
+      .name {
+        font-size: 20px;
+        font-weight: 500;
+        color: #222;
+      }
+
+      .id {
+        margin-top: 4px;
+        font-size: 14px;
+        color: #777;
+      }
+    }
+
+    .points {
+      display: flex;
+      align-items: center;
+
+      .num {
+        font-size: 24px;
+        font-weight: bold;
+        color: #009688;
+      }
+
+      .recharge {
+        margin-left: 8px;
+        padding: 4px 12px;
+        font-size: 16px;
+        color: #fff;
+        background: #FFB400;
+        border-radius: 12px;
+      }
+    }
+
+    .badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      background: #FFB400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+    }
+  }
+
+  .order-status {
+    margin: 0 16px 16px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+
+    .status-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .icon-box {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        background: #F0F8F8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+          font-size: 24px;
+        }
+
+        .dot {
+          position: absolute;
+          top: -2px;
+          right: -2px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #FF3B30;
+        }
+      }
+
+      .label {
+        margin-top: 4px;
+        font-size: 14px;
+        color: #333;
+      }
+    }
+  }
+
+  .func-group {
+    margin: 0 16px;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+
+    .func-item {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 16px;
+      border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .func-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+      }
+
+      .func-text-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .func-text {
+          font-size: 16px;
+          color: #222;
+        }
+
+        .sub-text {
+          margin-top: 2px;
+          font-size: 12px;
+          color: #777;
+        }
+      }
+
+      .func-text {
+        font-size: 16px;
+        color: #222;
+      }
+
+      .chevron {
+        margin-left: auto;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+  }
+
+  .contact-box {
+    margin: 24px 16px 16px;
+    text-align: center;
+
+    .contact-btn {
+      height: 44px;
+      border: 1px solid #FFB400;
+      border-radius: 22px;
+      color: #FFB400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+    }
+
+    .service-time {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    display: flex;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+
+    .bottom-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 12px;
+
+      &.active {
+        color: #009688;
+      }
+    }
   }
 }
