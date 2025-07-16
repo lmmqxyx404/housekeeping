@@ -1,0 +1,203 @@
+.messages {
+  background: #F5F7FA;
+  min-height: 100vh;
+  padding-bottom: 72px;
+
+  .title-bar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    .home {
+      width: 24px;
+      height: 24px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-family: 'Microsoft Yahei', sans-serif;
+      color: #222;
+    }
+
+    .ops {
+      display: flex;
+      .op {
+        margin-left: 12px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    height: 48px;
+    padding: 0 16px;
+    align-items: center;
+
+    .tab-item {
+      margin-right: 24px;
+      padding: 0 12px;
+      font-size: 16px;
+      color: #666;
+      position: relative;
+
+      &.active {
+        color: #FF5722;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: #FF5722;
+        }
+      }
+
+      .badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: #FF3B30;
+        color: #fff;
+        font-size: 12px;
+        padding: 0 4px;
+        height: 16px;
+        line-height: 16px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .orders {
+    .order-card {
+      display: flex;
+      background: #fff;
+      border-radius: 4px;
+      padding: 12px;
+      margin: 8px 16px;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+      align-items: center;
+
+      .order-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 4px;
+        margin-right: 12px;
+        object-fit: cover;
+      }
+
+      .order-content {
+        flex: 1;
+        overflow: hidden;
+        .order-title {
+          font-size: 16px;
+          font-family: 'Microsoft Yahei', sans-serif;
+          font-weight: 500;
+          color: #009688;
+        }
+        .order-address {
+          margin-top: 4px;
+          font-size: 14px;
+          color: #777;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+
+      .detail-btn {
+        width: 64px;
+        height: 28px;
+        background: #FF5722;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 16px;
+      }
+    }
+
+    .empty {
+      text-align: center;
+      padding: 48px 0;
+      font-size: 16px;
+      color: #999;
+    }
+  }
+
+  .platform {
+    .group-header {
+      font-size: 12px;
+      color: #999;
+      background: #F5F5F5;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 16px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    .platform-card {
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+      padding: 12px;
+      margin: 8px 16px;
+
+      .cover {
+        width: 100%;
+        height: 120px;
+        border-radius: 4px 4px 0 0;
+        object-fit: cover;
+      }
+
+      .card-title {
+        margin-top: 8px;
+        font-size: 18px;
+        color: #222;
+        font-weight: bold;
+      }
+
+      .card-summary {
+        margin-top: 4px;
+        font-size: 14px;
+        color: #555;
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    display: flex;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+
+    .bottom-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 12px;
+
+      &.active {
+        color: #007AFF;
+      }
+    }
+  }
+}
